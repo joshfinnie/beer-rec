@@ -26,3 +26,9 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+.env
+.ropeproject/
+
+# ElasticSearch data
+development/elasticsearch/data
+development/elasticsearch/logs

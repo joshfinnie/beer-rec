@@ -1,0 +1,19 @@
+web:
+  build: .
+  ports:
+    - 1337:1337
+  volumes:
+    - .:/code
+  links:
+    - es
+  command: "coffee /code/app/server.coffee"
+es:
+  build: development/elasticsearch
+  volumes:
+    - development/elasticsearch:/data
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  command: "/elasticsearch/bin/elasticsearch elasticsearch -Des.config data/elasticsearch.yml"
+db:
+  image: library/postgres
